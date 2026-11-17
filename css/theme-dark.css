@@ -1,0 +1,246 @@
+/* ============================================================
+   TEMA ESCURO CINEMATOGRÁFICO — inspirado em tomdekoning.work
+   Carregado POR ÚLTIMO. Vira os tokens e corrige excepções.
+   Preto #0D0D0D · creme #ECE7DC · vermelho #E8431F · Fraunces
+   ============================================================ */
+
+:root {
+  --paper: #0D0D0D;
+  --paper-2: #141414;
+  --text: #ECE7DC;
+  --text-dim: #9b968b;
+  --text-faint: #6f6a60;
+  --line: rgba(236, 231, 220, 0.14);
+  --line-strong: rgba(236, 231, 220, 0.30);
+  --accent: #E8431F;
+  --ink: #ECE7DC;      /* era escuro; agora é a "cor forte" = creme */
+  --ink-2: #161616;
+  --ink-3: #1f1f1f;
+  --font-display: 'Fraunces', 'Space Grotesk', Georgia, serif;
+}
+
+html, body { background: var(--paper); color: var(--text); }
+::selection { background: var(--accent); color: #fff; }
+
+/* display serif com mais contraste óptico */
+.hero__name, .section-intro h2, .sig3d__text h2, .contact h2, #contact-title,
+.pipeline-reading h3, .skills-depth h3, .delivery-top b { font-family: var(--font-display); }
+
+/* ---- Skip-link / acentos ---- */
+.skip-link { background: var(--accent); color: #fff; }
+.name-stop, .accent { color: var(--accent); }
+.local-dot, .sheet-key--late::before { background: var(--accent); }
+
+/* ---- NAV ---- */
+.nav { background: rgba(13, 13, 13, 0.86); backdrop-filter: blur(12px); border-bottom-color: var(--line); }
+.nav.is-stuck { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); }
+.nav__brand svg path:last-child { fill: var(--accent); }
+
+/* ---- HERO: palco 3D escuro ---- */
+.hero-model { background: #101010; border-color: var(--line); }
+.model-viewport {
+  background-image:
+    linear-gradient(rgba(236, 231, 220, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236, 231, 220, 0.055) 1px, transparent 1px);
+}
+.model-viewport::after { background: #00000030; }
+.model-chrome { border-bottom-color: var(--line); color: var(--text-faint); }
+.model-chrome button, .model-help, .model-credits, .model-orbit-label, .model-credit { color: var(--text-faint); }
+.model-actions button { border-color: var(--line-strong); color: var(--text-dim); background: transparent; }
+.model-actions button[aria-pressed="true"] { background: var(--text); color: #101010; border-color: var(--text); }
+.model-fallback i { background: var(--accent); box-shadow: 8px 8px 0 #7a2410; }
+.model-fallback i:nth-child(2) { background: #f06a44; }
+.model-fallback i:nth-child(3) { background: #f79070; }
+
+/* ---- Projectos: chevrons e case plates ---- */
+.proj__chev { background: transparent; border: 1px solid var(--line-strong); }
+.proj__chev::before, .proj__chev::after { background: var(--text-dim); }
+.proj__head[aria-expanded="true"] .proj__chev { background: var(--accent); border-color: var(--accent); }
+.proj__head[aria-expanded="true"] .proj__chev::before,
+.proj__head[aria-expanded="true"] .proj__chev::after { background: #fff; }
+.proj__title { color: var(--text); }
+.proj:hover .proj__title { color: var(--accent); }
+.proj__stack span { border-color: var(--line); color: var(--text-dim); background: var(--ink-2); }
+.proj__desc b, .proj__desc em { color: var(--text); }
+.proj__desc code { color: var(--accent); }
+.proj__wins li::before { background: var(--accent); }
+
+.case-plate, .case-plate--treasury, .case-plate--fleet, .case-plate--web {
+  background: #141414; border-color: var(--line); color: var(--text);
+}
+.plate-index, .plate-bottom { color: var(--text-faint); }
+.plate-heading { color: var(--text); }
+.app-study { background: #161616; }
+.app-study aside { background: #1d1d1d; color: var(--text-dim); }
+.app-study__nav { border-color: var(--line); color: var(--text); }
+.app-study__content, .app-study__title { color: var(--text); }
+.app-study__rows span { border-color: var(--line); color: var(--text-dim); }
+
+/* hero-sheet (caso apareça) */
+.hero-sheet { background: #141414; border-color: var(--line); box-shadow: 7px 8px 0 #000; }
+.sheet-top, .sheet-bottom { border-color: var(--line); color: var(--text-faint); }
+
+/* ---- Pipeline / competências: manter como "ferramenta" clara emoldurada ----
+   (fica como uma ilha clara sobre o escuro — coerente com o estilo Tom) */
+
+/* ---- Trabalhos entregues: título ---- */
+.realwork__note, .gallery__note { color: var(--text-dim); }
+
+/* ---- Exemplares / mesa de análise ---- */
+.analysis-desk { border-color: var(--line); }
+.desk-chrome { color: var(--text-faint); border-color: var(--line); }
+.gtab { color: var(--text-dim); border-color: var(--line); background: var(--ink-2); }
+.gtab.is-active { color: #101010; background: var(--text); border-color: var(--text); }
+
+/* ---- Sobre / competências ---- */
+.practice article, .skills-depth article { border-color: var(--line-strong); }
+.expertise > div { border-color: var(--line); }
+.expertise__label { color: var(--accent); }
+
+/* ---- Contacto ---- */
+.contact { border-top-color: var(--line); }
+.contact-email { border-color: var(--line-strong); }
+.contact-email:hover { border-color: var(--accent); background: rgba(232, 67, 31, 0.08); }
+.contact__secondary a, .contact__secondary button { color: var(--text-dim); border-color: var(--line); }
+.contact__secondary a:hover, .contact__secondary button:hover { color: var(--accent); }
+
+/* ---- Rodapé ---- */
+.foot { background: #0a0a0a; border-top-color: var(--line); color: var(--text-faint); }
+.foot a { color: var(--text-dim); }
+.foot a:hover { color: var(--accent); }
+
+/* ---- Botões de acção primária em vermelho ---- */
+.btn--solid, .hero-proof__bars { }
+.text-link { border-bottom-color: var(--text); }
+.text-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---- Barra de progresso de leitura ---- */
+.reading-progress { background: var(--accent); }
+
+/* ---- Itálico-swash (letras redondas inclinadas, assinatura Tom) ---- */
+.sw { font-style: italic; font-synthesis: none; }
+
+/* ---- Ajustes de espaçamento para o serif Fraunces (menos apertado) ---- */
+.hero__name { letter-spacing: -0.03em; }
+.section-intro h2, #realwork-title, .sig3d__text h2, .contact h2 { letter-spacing: -0.025em; }
+.hero__name .sw { font-style: italic; }
+
+/* ============================================================
+   CARROSSEL 3D "COVERFLOW" (Fase 2) — estilo tomdekoning
+   ============================================================ */
+.work3d { position: relative; background: #0b0b0b; padding: clamp(60px,9vw,110px) 0 clamp(50px,7vw,90px); overflow: hidden; }
+.work3d__ghost {
+  position: absolute; top: 4%; left: 50%; transform: translateX(-50%);
+  font: 600 clamp(90px,20vw,300px)/1 var(--font-display);
+  color: rgba(236,231,220,.035); white-space: nowrap; pointer-events: none;
+  letter-spacing: -.04em; z-index: 0; user-select: none;
+}
+.work3d__head { position: relative; z-index: 2; text-align: center; margin-bottom: clamp(18px,3vw,30px); padding: 0 20px; }
+.work3d__kicker { font: 400 10px var(--font-mono); letter-spacing: .14em; color: var(--text-faint); margin-bottom: 14px; }
+.work3d__title { font: 500 clamp(32px,6vw,74px)/1 var(--font-display); letter-spacing: -.03em; color: var(--text); transition: opacity .3s; }
+.work3d__label { font: 400 12px var(--font-mono); letter-spacing: .05em; color: var(--accent); margin-top: 12px; transition: opacity .3s; }
+.work3d__stage { position: relative; z-index: 1; height: clamp(280px,44vw,540px); perspective: 1800px; perspective-origin: 50% 46%; margin: 0 auto; max-width: 1600px; cursor: grab; outline: none; touch-action: pan-y; }
+.work3d__stage:active { cursor: grabbing; }
+.work3d__track { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+.w3d-item {
+  position: absolute; top: 50%; left: 50%; width: min(62vw,720px);
+  margin: 0; padding: 0; border: none; background: none; cursor: pointer;
+  transform: translate(-50%,-50%); transition: transform .6s cubic-bezier(.22,1,.36,1), opacity .6s, filter .6s;
+  will-change: transform, opacity;
+}
+.w3d-item__frame { display: block; aspect-ratio: 16/10; overflow: hidden; border: 1px solid rgba(236,231,220,.16); background: #111; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
+.w3d-item img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.w3d-item.is-active .w3d-item__frame { border-color: rgba(236,231,220,.42); box-shadow: 0 40px 90px rgba(0,0,0,.7); }
+.w3d-item:not(.is-active) { filter: brightness(.58) saturate(.85); }
+.w3d-item.is-active:hover .w3d-item__frame { border-color: var(--accent); }
+.work3d__nav { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: clamp(22px,3vw,38px); }
+.work3d__arrow { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--text); font-size: 24px; cursor: pointer; display: grid; place-items: center; transition: all .2s; line-height: 1; }
+.work3d__arrow:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: scale(1.06); }
+.work3d__count { font: 400 13px var(--font-mono); color: var(--text-dim); letter-spacing: .1em; min-width: 72px; text-align: center; }
+.work3d__count b { color: var(--text); font-weight: 500; }
+.work3d__note { position: relative; z-index: 2; text-align: center; margin-top: 22px; font: 400 10px var(--font-mono); color: var(--text-faint); padding: 0 20px; }
+@media (max-width: 640px) { .w3d-item { width: 82vw; } }
+
+/* ============================================================
+   HERO ESTILO TOM — retrato + linhas de dados + CTA vermelho
+   ============================================================ */
+.hero2 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(90px,12vh,130px) clamp(20px,4.2vw,72px) clamp(40px,6vh,70px);
+  position: relative;
+}
+.hero2__topbar {
+  display: flex; justify-content: space-between; gap: 16px;
+  font: 400 10px var(--font-mono); letter-spacing: .1em; color: var(--text-dim);
+}
+.hero2__loc { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.hero2__about {
+  display: grid; grid-template-columns: minmax(240px,380px) 1fr;
+  gap: clamp(30px,6vw,90px); align-items: center;
+  margin: auto 0; padding: clamp(24px,4vh,50px) 0;
+}
+.hero2__photo { position: relative; aspect-ratio: 4/5; overflow: hidden; background: #161616; }
+.hero2__photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(232,67,31,.28), rgba(13,13,13,.05) 42%, rgba(13,13,13,.78));
+}
+.hero2__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; filter: contrast(1.06) saturate(1.04); }
+.hero2__panel { display: flex; flex-direction: column; gap: clamp(26px,4vh,48px); }
+.hero2__rows { display: flex; flex-direction: column; }
+.hero2__row {
+  display: grid; grid-template-columns: 148px 1fr; gap: 20px; align-items: baseline;
+  padding: 15px 0; border-bottom: 1px solid var(--line);
+}
+.hero2__row:first-child { border-top: 1px solid var(--line); }
+.hero2__k { font: 400 10px var(--font-mono); letter-spacing: .1em; color: var(--text-faint); }
+.hero2__v { font: 400 15px/1.5 var(--font-body); color: var(--text); }
+.hero2__cta {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 12px;
+  background: var(--accent); color: #fff;
+  font: 600 13px var(--font-mono); letter-spacing: .08em;
+  padding: 16px 26px; border-radius: 2px; transition: transform .25s, background .25s;
+}
+.hero2__cta:hover { background: #ff5a39; transform: translateY(-2px); }
+.hero2__cta i { font-size: 8px; font-style: normal; }
+.hero2__statement {
+  font: 500 clamp(44px,9vw,128px)/.94 var(--font-display);
+  letter-spacing: -.04em; color: var(--text); margin-top: clamp(20px,4vh,40px);
+}
+@media (max-width: 800px) {
+  .hero2__about { grid-template-columns: 1fr; gap: 28px; }
+  .hero2__photo { max-width: 320px; }
+  .hero2__row { grid-template-columns: 110px 1fr; gap: 12px; }
+}
+
+/* ---- Hero: 3D no lugar da foto + brilho laranja ---- */
+.hero2 { position: relative; }
+.hero2__stage3d {
+  position: relative; aspect-ratio: 4/5; min-height: 340px;
+  border: 1px solid var(--line);
+  background: radial-gradient(circle at 50% 44%, rgba(232,67,31,.16), transparent 60%);
+}
+.hero2__stage3d canvas { width: 100%; height: 100%; display: block; }
+.hero2__orbit { position: absolute; right: 12px; bottom: 10px; font: 400 8px var(--font-mono); color: var(--text-faint); }
+@media (max-width: 800px) { .hero2__stage3d { max-width: 340px; } }
+
+/* ============================================================
+   CURSOR PERSONALIZADO — ponto + rasto laranja (Fase 4)
+   ============================================================ */
+.has-cursor, .has-cursor a, .has-cursor button, .has-cursor .w3d-item,
+.has-cursor .shot, .has-cursor .gtab, .has-cursor .proj__head,
+.has-cursor input, .has-cursor select, .has-cursor canvas { cursor: none; }
+.cursor-dot {
+  position: fixed; top: 0; left: 0; width: 9px; height: 9px;
+  margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--accent);
+  z-index: 10000; pointer-events: none;
+  transition: width .22s, height .22s, margin .22s, background .22s, border-color .22s;
+}
+.cursor-dot.is-big {
+  width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  background: rgba(232,67,31,.18); border: 1px solid var(--accent);
+}
+.cursor-canvas { position: fixed; inset: 0; z-index: 9999; pointer-events: none; }

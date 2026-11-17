@@ -1,0 +1,51 @@
+/* Editorial opening; the existing sections, demos and assets stay in place. */
+.nav__actions { display: flex; align-items: center; gap: 24px; }
+.language-switch { display: flex; align-items: center; gap: 9px; color: var(--text-faint); font: 11px var(--font-mono); }
+.language-switch button { padding: 10px 2px; background: none; border: 0; color: var(--text-dim); font: inherit; }
+.language-switch button[aria-pressed="true"] { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 6px; }
+.hero2--editorial { max-width: none; min-height: calc(100svh - 87px); padding: 28px clamp(20px,4.2vw,80px) 22px; overflow: hidden; isolation: isolate; }
+.hero2--editorial::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 78% 42%,#87200f30,transparent 45%); }
+.hero2--editorial .hero2__topbar { font-size: 9px; color: var(--text-dim); }
+.hero2__composition { position: relative; display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; flex: 1; min-height: 400px; padding: 35px 0 20px; }
+.hero2__copy { position: relative; z-index: 2; pointer-events: none; }
+.hero2__copy a { pointer-events: auto; }
+.hero2__copy .hero2__eyebrow { font: 9px var(--font-mono); color: var(--text-dim); letter-spacing: .12em; margin-bottom: 24px; }
+.hero2--editorial .hero2__statement { margin: 0; font: 500 clamp(44px,5.4vw,100px)/1.03 var(--font-display); letter-spacing: -.055em; max-width: 900px; }
+.hero2__intro { font: 13px/1.8 var(--font-body); max-width: 340px; margin: 24px 0; color: var(--text-dim); }
+.hero2--editorial .hero2__cta { padding: 13px 0; font: 10px var(--font-mono); letter-spacing: .07em; background: none; border-bottom: 1px solid var(--accent); border-radius: 0; color: var(--text); gap: 28px; }
+.hero2--editorial .hero2__cta span { font-size: 21px; color: var(--accent); }
+.hero2--editorial .hero2__cta:hover { background: none; transform: translateX(5px); }
+.hero2--editorial .hero2__stage3d { position: absolute; z-index: 1; right: -3%; top: -8%; bottom: -6%; width: 55%; min-height: 0; max-width: none; aspect-ratio: auto; border: 0; background: none; }
+.hero2--editorial canvas { filter: sepia(1) saturate(2.5) hue-rotate(333deg); }
+.hero2__sculpture-label { position: absolute; right: 9%; bottom: 11%; color: var(--text-faint); font: 8px var(--font-mono); letter-spacing: .08em; }
+.hero2__fallback { display: none; }
+.accent3d--failed .hero2__fallback { display: grid; height: 100%; place-items: center; font: italic 160px var(--font-display); color: var(--accent); }
+.hero2__signature { position: relative; z-index: 2; font: 500 clamp(60px,10.7vw,210px)/.9 var(--font-display); letter-spacing: -.07em; white-space: nowrap; padding: 16px 0 30px; width: 100%; pointer-events: none; }
+.hero2__signature i { font-weight: 400; }
+.hero2__signature>span { color: var(--accent); font: 16px var(--font-body); vertical-align: top; letter-spacing: 0; margin-left: 8px; }
+.hero2__baseline { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 18px; font: 8px/1.6 var(--font-mono); letter-spacing: .06em; color: var(--text-dim); }
+.availability-dot { display: inline-block; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.work3d__stage { cursor: ew-resize; }
+.w3d-item { transition: opacity .2s, filter .2s; will-change: transform; }
+.w3d-item img { user-select: none; -webkit-user-drag: none; object-fit: contain; background: #111; }
+.w3d-item__frame { aspect-ratio: 16/9; }
+.work3d__count { display: block; }
+.work3d__note { letter-spacing: .06em; }
+.shots-viewer__img { cursor: pointer; }
+@media(min-width:1600px) { .hero2__composition { min-height: 420px; } .hero2--editorial .hero2__statement { font-size: 5.5vw; } }
+@media(max-width:800px) {
+ .nav__actions { gap: 14px; } .has-full-menu .menu-toggle { padding: 10px 12px; gap: 8px; font-size: 10px; }
+ .hero2--editorial { min-height: calc(100svh - 70px); padding-top: 20px; }
+ .hero2__composition { min-height: 500px; display: block; padding-top: 35px; padding-bottom: 230px; }
+ .hero2--editorial .hero2__statement { font-size: clamp(39px,7.8vw,64px); max-width: 90%; }
+ .hero2__intro { max-width: 270px; font-size: 12px; margin-top: 20px; }
+ .hero2--editorial .hero2__stage3d { width: 80%; right: -21%; top: 32%; bottom: -9%; }
+ .hero2__sculpture-label { display: none; }
+ .hero2__signature { font-size: 10.7vw; padding: 8px 0 25px; }
+ .hero2__signature>span { font-size: 9px; margin-left: 3px; }
+ .hero2__baseline { flex-wrap: wrap; font-size: 7px; gap: 10px; }
+ .hero2__baseline>a { display: none; }
+ .language-switch { gap: 7px; font-size: 10px; }
+ .work3d__stage { height: 48vw; }
+}
+@media(prefers-reduced-motion:reduce) { .w3d-item { transition: none; } }
