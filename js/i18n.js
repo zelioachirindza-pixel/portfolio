@@ -6,13 +6,13 @@
   var originals = new WeakMap(), attributes = new WeakMap();
   var headings = Array.from(document.querySelectorAll('.hero2__statement,.section-intro h2,.about__statement h2,.sig3d__text h2,#contact-title'));
   var headingCopy = {
-  ".hero2__statement": "Clarity in data.<br>Impact in decisions<span class=\"accent\">.</span>",
+  ".hero2__statement": "Clear data.<br>Confident decisions<span class=\"accent\">.</span>",
   "#skills-title": "A dashboard starts<br>before the chart<span class=\"accent\">.</span>",
-  "#work-title": "From the problem<br>to the decision<span class=\"accent\">.</span>",
+  "#work-title": "Business questions.<br>Practical answers<span class=\"accent\">.</span>",
   "#maps-title": "Open a dashboard.<br>Follow a question<span class=\"accent\">.</span>",
-  "#about-title": "Technical detail.<br>Real-world use<span class=\"accent\">.</span>",
-  ".sig3d__text h2": "Data has a shape.<br>I give it<br>structure<span class=\"accent\">.</span>",
-  "#contact-title": "Your next dashboard<br>starts here<span>↗</span>"
+  "#about-title": "Built on the details.<br>Focused on the business<span class=\"accent\">.</span>",
+  ".sig3d__text h2": "Good decisions<br>start with<br>structure<span class=\"accent\">.</span>",
+  "#contact-title": "Let’s turn your data<br>into decisions<span>↗</span>"
 };
   var headingEnglish = headings.map(function (heading) { var key = Object.keys(headingCopy).find(function (selector) { return heading.matches(selector); }); return headingCopy[key] || heading.innerHTML; });
   var headingPortuguese = headings.map(function (el) { el.dataset.headingCopy = 'true'; return el.innerHTML; });
@@ -27,7 +27,7 @@
   function translate(text) { return language === 'en' ? english(text) : text; }
   function translateNode(node) {
     var parent = node.parentElement;
-    if (!parent || parent.closest('script,style,code,pre,noscript,[data-heading-copy],[data-lang]')) return;
+    if (!parent || parent.closest('script,style,code,pre,noscript,[data-heading-copy],[data-lang],[data-locale-only="en"]')) return;
     var current = node.nodeValue;
     if (!current.trim()) return;
     var saved = originals.get(node);
@@ -72,13 +72,14 @@
   function setLanguage(value,initial) {
     observer.disconnect(); language = value === 'en' ? 'en' : 'pt';
     document.documentElement.lang = language === 'en' ? 'en' : 'pt-MZ';
-    document.title = language === 'en' ? 'Zélio Chirindza — Business Intelligence' : 'Zélio Chirindza — Trabalho em dados';
+    document.title = language === 'en' ? 'Zélio Chirindza — BI Analyst & Data Modeller' : 'Zélio Chirindza — Trabalho em dados';
     headings.forEach(function (el,i) { el.innerHTML = language === 'en' ? headingEnglish[i] : headingPortuguese[i]; delete el.dataset.sw; });
     document.querySelectorAll('[data-lang]').forEach(function (button) { button.setAttribute('aria-pressed',String(button.dataset.lang===language)); });
+    document.querySelectorAll('[data-locale-only]').forEach(function (element) { element.hidden = element.dataset.localeOnly !== language; });
     visit(document.body);
     document.querySelectorAll('[data-case-preview]').forEach(function (image) { image.src = 'assets/case-' + image.dataset.casePreview + (language === 'en' ? '-en' : '') + '.png'; });
     var description = document.querySelector('meta[name="description"]');
-    if (description) description.content = language === 'en' ? 'Zélio Chirindza. Business Intelligence analyst in Maputo. SQL, Power Query, semantic modelling, DAX and dashboard design.' : 'Zélio Chirindza. Analista de Business Intelligence em Maputo. SQL, Power Query, modelação semântica, DAX e design de dashboards.';
+    if (description) description.content = language === 'en' ? 'Business Intelligence Analyst and Data Modeller in Maputo, Mozambique. Power BI dashboards, SQL, Power Query, DAX and report design. Available for remote projects worldwide.' : 'Zélio Chirindza. Analista de Business Intelligence em Maputo. SQL, Power Query, modelação semântica, DAX e design de dashboards.';
     if (!initial) { try { localStorage.setItem('portfolio-language',language); } catch (ignore) {} }
     document.dispatchEvent(new CustomEvent('portfolio:language',{detail:{language:language}})); observe();
   }
